@@ -4,6 +4,17 @@
 	<title></title>
 </head>
 <body>
-<h1>{{ app.message }}</h1>
+<div ng-controller="AuthController">
+ <form>   
+    <input type="text" name="username" ng-model="user.username" value="" placeholder="Username">
+
+    {{user.name}}
+    
+    <input type="password" name="password" ng-model="user.password" placeholder="">
+    {{errorMsg}}
+    <button type="submit" ng-click="login()">Submit</button>
+</form>
+</div>
+
 </body>
 </html>

@@ -1,13 +1,19 @@
-angular.module('myApp', ['ngRoute'])
+angular.module('connectApp', ['ngRoute','LocalStorageModule'])
 
-.config(function($routeProvider){
-  $routeProvider.when("/",
-    {
-      templateUrl: "app/views/app.html",
-      controller: "AppCtrl",
-      controllerAs: "app"
-    }
-  );
+.config(function($routeProvider,localStorageServiceProvider,$httpProvider){
+
+    localStorageServiceProvider
+    .setPrefix('connectApp')
+    .setStorageType('sessionStorage');
+
+    $routeProvider
+    .when("/",{
+        templateUrl: "app/views/app.html",
+        controller: "AuthController",
+    });
+
+    $httpProvider.interceptors.push('authInterceptor');
+
 })
 
 .controller('AppCtrl', function() {
