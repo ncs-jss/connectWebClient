@@ -20,7 +20,7 @@ angular.module('connectApp')
         }
     }
 }])
-.factory('Auth',['localStorageService','$http','$location',function(localStorageService,$http,$location){
+.factory('Auth',['localStorageService','$http','$location','$rootScope',function(localStorageService,$http,$location,$rootScope){
     
     return {
         login:login,
@@ -29,7 +29,7 @@ angular.module('connectApp')
     
     function login(user,callback){
 
-        $http.post('http://192.168.3.19:8000/token/',JSON.stringify(user),function(data,response){
+        $http.post($rootScope.apiBaseUrl+'/token/',JSON.stringify(user),function(data,response){
             if(data.error === false){
                 localStorageService.set('auth_token',data.token);
                 $location.path = "/dashboard";
@@ -41,7 +41,7 @@ angular.module('connectApp')
     }
 
     function logout(){
-        storageService.remove('auth_token');
+        localStorageService.remove('auth_token');
         $location.path = "/";        
     }
 }])

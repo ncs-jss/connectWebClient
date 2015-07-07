@@ -16,7 +16,6 @@ angular.module('connectApp', ['ngRoute','LocalStorageModule'])
 
 })
 
-.controller('AppCtrl', function() {
-  var self = this;
-  self.message = "The app routing is working!";
-});
+.run(function($rootScope){
+    $rootScope.apiBaseUrl = 'http://54.173.150.90:8000' ;
+})
