@@ -8,18 +8,19 @@ angular.module('connectApp')
                var token = storageService.get('auth_token');
             }
             if(token)
-                config.headers.Authorization = ': JWT ' + token ;
+                config.headers.Authorization = 'JWT ' + token ;
             return config;
         },
         responseErr: function(response){
-            if(response.status === 401 || response.status === 403){
+            if(response.status === 401){
                 storageService.remove('auth_token');
-                $location.path = "/login";
+                $location.path("/login");
             }
             $q.reject(response);
         }
     }
 }])
+
 .factory('Auth',['localStorageService','$http','$location','$rootScope',function(localStorageService,$http,$location,$rootScope){
     
     return {
@@ -29,19 +30,24 @@ angular.module('connectApp')
     
     function login(user,callback){
 
-        $http.post($rootScope.apiBaseUrl+'/token/',JSON.stringify(user),function(data,response){
-            if(data.error === false){
+        $http.post($rootScope.apiBaseUrl+'/token/',JSON.stringify(user))
+        .success(function(data,status){
+            if(data.token){
                 localStorageService.set('auth_token',data.token);
-                $location.path = "/dashboard";
-            }else
-                callback(data);
-        },'json');
+                $rootScope.type = data.type;
+                $location.path("/dashboard") ;
+            }
+        })
+        .error(function(data,status){
+            callback({error:true,message:'Wrong user name or password'});
+        });
     
 
     }
 
     function logout(){
         localStorageService.remove('auth_token');
-        $location.path = "/";        
+        $rootScope.type = undefined;
+        $location.path("/");        
     }
 }])
