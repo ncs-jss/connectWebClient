@@ -1,0 +1,52 @@
+@font-face {
+	font-family: "Flaticon";
+	src: url("flaticon.eot");
+	src: url("flaticon.eot#iefix") format("embedded-opentype"),
+	url("flaticon.woff") format("woff"),
+	url("flaticon.ttf") format("truetype"),
+	url("flaticon.svg") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+	font-family: Flaticon;
+font-style: normal;
+margin-left: 8px;
+margin-right: 3%;
+}.flaticon-attachment1:before {
+	content: "\e000";
+}
+.flaticon-back28:before {
+	content: "\e001";
+}
+.flaticon-calendar60:before {
+	content: "\e002";
+}
+.flaticon-city-hall:before {
+	content: "\e003";
+}
+.flaticon-close47:before {
+	content: "\e004";
+}
+.flaticon-data13:before {
+	content: "\e005";
+}
+.flaticon-graduated:before {
+	content: "\e006";
+}
+.flaticon-lines7:before {
+	content: "\e007";
+}
+.flaticon-note65:before {
+	content: "\e008";
+}
+.flaticon-right127:before {
+	content: "\e009";
+}
+.flaticon-star40:before {
+	content: "\e00a";
+}
+.flaticon-teacher4:before {
+	content: "\e00b";
+}
