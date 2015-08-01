@@ -3,8 +3,7 @@ angular.module('connectApp', ['ngRoute','LocalStorageModule'])
 .config(function($routeProvider,localStorageServiceProvider,$httpProvider){
 
     localStorageServiceProvider
-    .setPrefix('connectApp')
-    .setStorageType('sessionStorage');
+    .setStorageType('localStorage');
 
     $routeProvider
     .when("/",{
