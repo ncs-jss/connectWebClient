@@ -1,7 +1,7 @@
 {
-  "name": "connetWebClient",
+  "name": "connectWebClient",
   "version": "0.0.0",
-  "homepage": "https://github.com/ncs-jss/connetWebClient",
+  "homepage": "https://github.com/ncs-jss/connectWebClient",
   "authors": [
     "Nikhil Srivastava <niksrc@gmail.com>"
   ],
