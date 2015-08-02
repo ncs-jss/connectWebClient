@@ -59,6 +59,7 @@ angular.module('connectApp', ['ngRoute','LocalStorageModule','ngFileUpload'])
         controller: "NoticeController",
     })
     .when("/logout",{
+        template:"",
         controller: "LogoutController",
     })
 
