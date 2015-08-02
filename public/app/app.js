@@ -43,6 +43,10 @@ angular.module('connectApp', ['ngRoute','ngFileUpload'])
         templateUrl: "app/views/profileEdit.html",
         controller: "ProfileEditController",
     })
+    .when("/notice/new",{
+        templateUrl: "app/views/noticeNew.html",
+        controller: "NoticeNewController",
+    })
     .when("/notice/:id",{
         templateUrl: "app/views/notice.html",
         controller: "NoticeController",
@@ -50,10 +54,6 @@ angular.module('connectApp', ['ngRoute','ngFileUpload'])
     .when("/notice/:id/edit",{
         templateUrl: "app/views/noticeEdit.html",
         controller: "NoticeEditController",
-    })
-    .when("/notice/new",{
-        templateUrl: "app/views/noticeNew.html",
-        controller: "NoticeNewController",
     })
     .when("/logout",{
         template:"",
