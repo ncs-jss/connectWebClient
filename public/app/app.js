@@ -1,9 +1,6 @@
-angular.module('connectApp', ['ngRoute','LocalStorageModule','ngFileUpload'])
+angular.module('connectApp', ['ngRoute','ngFileUpload'])
 
-.config(function($routeProvider,localStorageServiceProvider,$httpProvider){
-
-    localStorageServiceProvider
-    .setStorageType('localStorage');
+.config(function($routeProvider,$httpProvider){
 
     $routeProvider
     .when("/",{
@@ -64,7 +61,6 @@ angular.module('connectApp', ['ngRoute','LocalStorageModule','ngFileUpload'])
     })
 
     $httpProvider.interceptors.push('authInterceptor');
-
 })
 
 .run(function($rootScope){
