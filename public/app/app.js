@@ -7,7 +7,7 @@ angular.module('connectApp', ['ngRoute','ngFileUpload'])
         templateUrl: "app/views/notices.html",
         controller: "NoticeListController",
     })
-    .when("/search",{
+    .when("/search/:search",{
         templateUrl: "app/views/notices.html",
         controller: "NoticeSearchController",
     })
@@ -53,7 +53,7 @@ angular.module('connectApp', ['ngRoute','ngFileUpload'])
     })
     .when("/notice/new",{
         templateUrl: "app/views/noticeNew.html",
-        controller: "NoticeController",
+        controller: "NoticeNewController",
     })
     .when("/logout",{
         template:"",
@@ -64,5 +64,5 @@ angular.module('connectApp', ['ngRoute','ngFileUpload'])
 })
 
 .run(function($rootScope){
-    $rootScope.apiBaseUrl = 'http://54.173.150.90:8000/api' ;
+    $rootScope.apiBaseUrl = 'http://192.168.0.9:8000/api' ;
 })
