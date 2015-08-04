@@ -55,7 +55,7 @@ angular.module('connectApp')
     }
 
     function removeNotice(id,callback){
-        $http.delete($rootScope.apiBaseUrl+'/notice/'+id)
+        $http.delete($rootScope.apiBaseUrl+'/notice/'+id+'/')
         .success(function(data,status){
             callback({error:false},data);
         })
@@ -65,7 +65,7 @@ angular.module('connectApp')
     }
 
     function fetch(id,callback){
-        $http.get($rootScope.apiBaseUrl+'/notice/'+id)
+        $http.get($rootScope.apiBaseUrl+'/notice/'+id+'/')
         .success(function(data,status){
             callback({error:false},data);
         })
@@ -92,7 +92,7 @@ angular.module('connectApp')
     function update(params,file,id,callback){
         if(file !== undefined){
             Upload.upload({
-                url: $rootScope.apiBaseUrl+'/notice/'+id,
+                url: $rootScope.apiBaseUrl+'/notice/'+id+'/',
                 fields: params,
                 file: file,
                 fileFormDataName:'file_attached'
@@ -104,7 +104,7 @@ angular.module('connectApp')
                 callback({error:true},{msg:'Unable to connect please retry'});
             })
         }else{
-            $http.post($rootScope.apiBaseUrl+'/samples/'+id,params)
+            $http.post($rootScope.apiBaseUrl+'/samples/'+id+'/',params)
             .success(function(data,status){
                 callback({error:false},data);
             })
@@ -114,14 +114,23 @@ angular.module('connectApp')
         }
     }
 
-    function toggleStarred(id,callback){
-        $http.post($rootScope.apiBaseUrl+'/starred/',{notice:id})
-        .success(function(data,status){
-            callback({error:false},data);
-        })
-        .error(function(data,status){
-            callback({error:true},{msg:'Unable to connect please retry'});
-        })
+    function toggleStarred(id,flag,starredId,callback){
+        if(!flag)
+            $http.post($rootScope.apiBaseUrl+'/starred/',{notice_id:id})
+            .success(function(data,status){
+                callback({error:false},data);
+            })
+            .error(function(data,status){
+                callback({error:true},{msg:'Unable to connect please retry'});
+            })
+        else
+            $http.delete($rootScope.apiBaseUrl+'/starred/'+starredId+'/',{notice_id:id})
+            .success(function(data,status){
+                callback({error:false},data);
+            })
+            .error(function(data,status){
+                callback({error:true},{msg:'Unable to connect please retry'});
+            })
     }
 
     function fetchAllStarred(params,callback){
