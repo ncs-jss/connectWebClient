@@ -40,9 +40,10 @@
                 </a>
             </span>
             <span class="input-bar">
-                <form action="#">
-                    <input type="text" placeholder="Search..">
-                    <input type="submit" value="Search" class="input-button">              </form>
+                <form ng-submit="searchNotice()" ng-controller="NoticeSearchFormController">
+                    <input type="text" placeholder="Search.." name="search" ng-model="search">
+                    <input type="submit" value="Search" class="input-button">
+                </form>
             </span>
             <span class="create-new-button">
                 <a href="#">Create New</a>
@@ -57,19 +58,19 @@
             <a href="#" class="close-panel flaticon-close47"></a>
             <div class="clearfix"></div>
             <ul>
-                <li><a href="#" class="flaticon-note65">Relevant<span class="unread">2</span></a></li>
-                <li><a href="#" class="flaticon-city-hall">Administration<span  class="unread">5</span></a></li>
-                <li class="side-navigation-tapped"><a href="#" class="flaticon-teacher4">Academics</a></li>
-                <li><a href="#" class="flaticon-calendar60">Events<span  class="unread">2</span></a></li>
-                <li><a href="#" class="flaticon-graduated">Placement<span class="unread">4</span></a></li>
-                <li><a href="#" class="flaticon-data13">Misc.<span class="unread">2</span></a></li>
-                <li class="starred-tab"><a href="#" class="flaticon-star40">Starred</a></li>
+                <li><a href="#/" class="flaticon-note65">Relevant<span class="unread">2</span></a></li>
+                <li><a href="#/administration" class="flaticon-city-hall">Administration<span  class="unread">5</span></a></li>
+                <li class="side-navigation-tapped"><a href="#/academics" class="flaticon-teacher4">Academics</a></li>
+                <li><a href="#/events" class="flaticon-calendar60">Events<span  class="unread">2</span></a></li>
+                <li><a href="#/placements" class="flaticon-graduated">Placement<span class="unread">4</span></a></li>
+                <li><a href="#/misc" class="flaticon-data13">Misc.<span class="unread">2</span></a></li>
+                <li class="starred-tab"><a href="#/starred" class="flaticon-star40">Starred</a></li>
             </ul>
             <ul class="account-activity-block">
                 <li><a href="#">My profile</a></li>
                 <li><a href="#">My webspace</a></li>
                 <li><a href="#">My SIM account</a></li>
-                <li><a href="#">Logout</a></li>
+                <li><a href="#/logout">Logout</a></li>
             </ul>
         </aside>
 
@@ -87,8 +88,9 @@
         <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
         <script src="bower_components/angular-touch/angular-touch.min.js"></script>
         <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
-        <script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
+        <script src="bower_components/ngstorage/ngStorage.min.js"></script>
         <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+        <script src="bower_components/ng-file-upload/ng-file-upload-all.min.js"></script>
         <script src="app/app.js"></script>
         <script src="app/controllers.js"></script>
         <script src="app/services.js"></script>
