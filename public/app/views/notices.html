@@ -1,0 +1,34 @@
+<div>
+    <li class="notice-list" id="welcome-message">
+        Welcome Sid to JSS Live
+        <span class="pagination">
+
+            {{ pagination.start }} - {{pagination.end}} of {{count}}
+
+        <a class="flaticon-back28" ng-click="paginate(-1)" ng-class ="{disabled:!pagination.prev}" ></a>
+
+        <a class="flaticon-right127" ng-click="paginate(+1)" ng-class ="{disabled:!pagination.next}" ></a>
+
+        </span>
+    </li>
+
+    <hr class="hr-middle">
+
+</div>
+
+<div class="clearfix"></div>
+
+<ul class="notice-all">
+
+    <li class="notice-list" ng-repeat="notice in notices">
+        <a href class="notice-starred flaticon-star40" ng-click="toggleStar(notice.id,notice.bookmark_flag,$index)" ng-class="{'notice-starred-tapped':{{notice.bookmark_flag}}}"></a>
+        <a class="notice-description" ng-href="#/notice/{{notice.id}}">
+            <span class="notice-uploader"> {{notice.owner}} </span>
+            <span class="notice-short-description"> {{notice.title}} </span>
+            <span class="notice-date flaticon-attachment1">
+                {{notice.updated_at | date:'fullDate'}}
+            </span>
+        </a>
+    </li>
+
+</ul>
