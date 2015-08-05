@@ -134,3 +134,10 @@ angular.module('connectApp')
 
     search();
 }])
+
+.controller('NoticeSearchFormController',['$scope','Notice','$location',function($scope,Notice,$location){
+
+    $scope.searchNotice = function(){
+        $location.url('/search/'+$scope.search);
+    }
+}])
