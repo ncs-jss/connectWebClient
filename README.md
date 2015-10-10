@@ -1,3 +1,6 @@
+# Warning: This repository is deprecated as of 2015-09-10.
+#The current version is situated [HERE](https://github.com/ncs-jss/connect)
+
 ## connetWebClient
 > An awesome web client for JSSConnect
 
